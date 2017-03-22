@@ -245,7 +245,7 @@ public class CancelarReserva extends javax.swing.JFrame {
             if(comboBoxNrQuarto.getSelectedItem() != null){
             Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "root", "123456" );
             
-            String sql = "UPDATE quartos SET ocupado=false, cliente=NULL WHERE numero=?";
+            String sql = "UPDATE quartos SET ocupado=false, cliente=NULL, data_inicial=NULL, data_final=NULL WHERE numero=?";
             PreparedStatement pstmt = con.prepareStatement(sql);           
             pstmt.setString(1, comboBoxNrQuarto.getSelectedItem().toString());
             pstmt.executeUpdate();
@@ -294,7 +294,7 @@ public class CancelarReserva extends javax.swing.JFrame {
             if(comboBoxNomes.getSelectedItem() != null){
                 Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "root", "123456" );
 
-                String sql = "UPDATE quartos SET ocupado=false, cliente=NULL WHERE cliente=?";
+                String sql = "UPDATE quartos SET ocupado=false, cliente=NULL, data_inicial=NULL, data_final=NULL WHERE cliente=?";
                 PreparedStatement pstmt = con.prepareStatement(sql);           
                 pstmt.setString(1, comboBoxNomes.getSelectedItem().toString());
                 pstmt.executeUpdate();
